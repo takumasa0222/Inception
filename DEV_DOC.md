@@ -413,6 +413,24 @@ SHOW DATABASES;
 SELECT User, Host, plugin FROM mysql.user;
 ```
 
+Check databases
+```bash
+docker compose -f srcs/docker-compose.yml exec mariadb sh -c '
+mariadb -u root -p"$(cat /run/secrets/db_root_password)" -e "
+SHOW DATABASES;
+"
+'
+```
+
+Check User
+```bash
+docker compose -f srcs/docker-compose.yml exec mariadb sh -c '
+mariadb -u root -p"$(cat /run/secrets/db_root_password)" -e "
+SELECT User, Host, plugin FROM mysql.user
+WHERE User = '\'''\'' OR User = '\''${MYSQL_USER}'\'';
+"'
+```
+
 ### WordPress Database Connection Validation
 
 If WP-CLI is installed in the WordPress container:
