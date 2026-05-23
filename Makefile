@@ -6,7 +6,7 @@
 #    By: tamatsuu <tamatsuu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/23 05:51:07 by tamatsuu          #+#    #+#              #
-#    Updated: 2026/05/23 05:51:12 by tamatsuu         ###   ########.fr        #
+#    Updated: 2026/05/23 16:41:27 by tamatsuu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,6 @@ clean:
 
 fclean:
 	$(COMPOSE) down -v --rmi all --remove-orphans
-	rm -rf $(DATA_DIR)
+	sudo rm -rf $(DATA_DIR)
 
 re: fclean up
